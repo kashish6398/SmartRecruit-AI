@@ -208,6 +208,8 @@
   text-decoration: none;
   font-weight: 500;
   margin-top: 0.25rem;
+  border: white;
+  background-color: white;
 }
 
 .forgot-password:hover {

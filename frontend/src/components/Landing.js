@@ -81,9 +81,11 @@ function Landing({ onNavigate }) {
         <div className="footer-content">
           <div className="footer-logo">Smart Recruit &copy; {new Date().getFullYear()}</div>
           <div className="footer-links">
-            <a href="#" onClick={(e) => e.preventDefault()}>About</a>
-            <a href="#" onClick={(e) => e.preventDefault()}>Contact</a>
-            <a href="#" onClick={(e) => e.preventDefault()}>Privacy Policy</a>
+            <button type="button" onClick={() => alert("About page coming soon")}> About </button>
+
+            <button type="button" onClick={() => alert("Contact page coming soon")}> Contact </button>
+
+            <button type="button" onClick={() => alert("Privacy Policy coming soon")}> Privacy Policy </button>
           </div>
         </div>
       </footer>

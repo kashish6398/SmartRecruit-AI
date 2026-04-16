@@ -189,7 +189,9 @@ function Auth({ onLogin, initialMode = 'login', onBack }) {
                       {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
               </div>
-              {isLogin && <a className="link-btn forgot-password" onClick={(e) => e.preventDefault()}>Forgot Password?</a>}
+              {isLogin && <button type="button" className="link-btn forgot-password" onClick={() => alert("Forgot password clicked")}>
+              Forgot Password?
+              </button>}
             </div>
 
             {!isLogin && (
