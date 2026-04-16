@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -28,15 +28,15 @@ export const authAPI = {
 
 // Candidate APIs
 export const candidateAPI = {
-uploadResume: (formData) => {
-  const token = localStorage.getItem('token');
+  uploadResume: (formData) => {
+    const token = localStorage.getItem('token');
 
-  return api.post('/candidate/upload-resume', formData, {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
-},
+    return api.post('/candidate/upload-resume', formData, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+  },
   getMyResume: () => api.get('/candidate/my-resume'),
   deleteMyResume: () => api.delete('/candidate/my-resume')
 };
