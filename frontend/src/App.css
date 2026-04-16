@@ -71,7 +71,7 @@ body {
 .form-group textarea {
   padding: 12px;
   border: 2px solid #e0e0e0;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   transition: border-color 0.3s;
 }
@@ -88,7 +88,7 @@ body {
   color: white;
   border: none;
   padding: 14px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -109,7 +109,7 @@ body {
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -125,7 +125,7 @@ body {
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -141,7 +141,7 @@ body {
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -296,44 +296,173 @@ body {
   padding: 20px;
 }
 
-.info-row {
+.info-header {
   display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
   padding-bottom: 15px;
   border-bottom: 1px solid #f0f0f0;
 }
 
-.info-row:last-child {
-  border-bottom: none;
-}
-
-.info-row strong {
+.info-header h3 {
   color: #333;
-  min-width: 150px;
+  margin: 0;
+  font-size: 1.1rem;
 }
 
-.info-row span {
-  color: #666;
+.upload-date {
+  color: #888;
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+.info-icon {
+  color: #667eea;
+}
+
+.match-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stat-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   flex: 1;
+  min-width: 120px;
+  border: 1px solid #eee;
+}
+
+.stat-box.full-width {
+  flex: 100%;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .score {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   color: #28a745;
 }
 
-.resume-text {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 6px;
+.missing-skills {
+  font-size: 0.95rem;
+  color: #dc3545;
+}
+
+.resume-preview-section {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.preview-header {
+  padding: 16px 20px;
+  background: #f8fafc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.preview-header h4 {
+  margin: 0;
+  color: #334155;
+  font-size: 1rem;
+}
+
+.btn-expand {
+  background: transparent;
+  border: none;
+  color: #6366f1;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.btn-expand:hover {
+  opacity: 0.8;
+}
+
+.resume-structured-content {
+  padding: 20px;
+}
+
+.structured-list {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.structured-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.structured-list li strong {
+  color: #475569;
+  min-width: 90px;
+}
+
+.structured-list li span {
+  color: #64748b;
+  flex: 1;
+  line-height: 1.5;
+}
+
+.full-text {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.full-text h5 {
+  color: #334155;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.full-text p {
+  white-space: pre-wrap;
   font-family: monospace;
-  font-size: 12px;
+  font-size: 0.85rem;
   line-height: 1.6;
-  color: #333;
-  max-height: 200px;
+  color: #475569;
+  background: #f1f5f9;
+  padding: 15px;
+  border-radius: 8px;
+  max-height: 300px;
   overflow-y: auto;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
 }
 
 /* HR Dashboard */

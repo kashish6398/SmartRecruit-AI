@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
+require('dns').setDefaultResultOrder('ipv4first');
 
 // Load environment variables
 dotenv.config({ path: './.env' });

@@ -26,13 +26,9 @@
 }
 
 .auth-left {
-  flex: 1 1 50%;
-  width: 50%;
-  background: 
-    radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.8), transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(126, 34, 206, 0.8), transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(79, 70, 229, 0.8), transparent 50%),
-    #0f172a;
+  flex: 1 1 42%;
+  width: 42%;
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,12 +41,12 @@
   position: relative;
   z-index: 10;
   text-align: center;
-  color: #ffffff;
+  color: #1e293b;
   max-width: 400px;
 }
 
 .auth-left-content h1 {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -58,14 +54,14 @@
 }
 
 .auth-left-content p {
-  font-size: 1.15rem;
-  color: #cbd5e1;
+  font-size: 1.1rem;
+  color: #475569;
   line-height: 1.6;
 }
 
 .auth-right {
-  flex: 1 1 50%;
-  width: 50%;
+  flex: 1 1 58%;
+  width: 58%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,29 +69,28 @@
   background-color: #ffffff;
 }
 
-.auth-top-nav {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  z-index: 100;
+.back-btn-container {
+  margin-bottom: 2rem;
 }
 
-.back-btn-fixed {
-  background: transparent;
+.back-btn {
+  background: #f1f5f9;
   border: none;
-  color: #334155;
+  color: #475569;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0;
-  transition: color 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-.back-btn-fixed:hover {
-  color: #4f46e5;
+.back-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 .auth-form-wrapper {
@@ -340,14 +335,14 @@
   .auth-left {
     padding: 3rem 1.5rem 2rem 1.5rem;
     min-height: 200px;
-    background: 
-      radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.8), transparent 50%),
-      radial-gradient(circle at 85% 30%, rgba(126, 34, 206, 0.8), transparent 50%),
-      radial-gradient(circle at 50% 80%, rgba(79, 70, 229, 0.8), transparent 50%),
-      #0f172a;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
   }
   .auth-left-content h1 {
     font-size: 1.75rem;
+    color: #1e293b;
+  }
+  .auth-left-content p {
+    color: #475569;
   }
   .auth-right {
     padding: 0;
@@ -361,8 +356,7 @@
   .auth-submit-btn, .social-btn {
     width: 100%;
   }
-  .auth-top-nav {
-    top: 1rem;
-    left: 1rem;
+  .auth-submit-btn, .social-btn {
+    width: 100%;
   }
 }

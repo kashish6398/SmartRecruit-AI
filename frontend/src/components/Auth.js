@@ -80,13 +80,6 @@ function Auth({ onLogin, initialMode = 'login', onBack }) {
   };
   return (
     <div className="auth-page">
-      {onBack && (
-        <nav className="auth-top-nav">
-          <button type="button" className="back-btn-fixed" onClick={onBack}>
-            <ArrowLeft size={18} /> Back to Home
-          </button>
-        </nav>
-      )}
       <div className="auth-container">
         <div className="auth-left">
         <div className="auth-left-content">
@@ -96,6 +89,13 @@ function Auth({ onLogin, initialMode = 'login', onBack }) {
       </div>
       <div className="auth-right">
         <div className="auth-form-wrapper">
+          {onBack && (
+            <div className="back-btn-container">
+              <button type="button" className="back-btn" onClick={onBack}>
+                <ArrowLeft size={18} /> Back to Home
+              </button>
+            </div>
+          )}
           <div className="auth-tabs">
             <button 
                 type="button"

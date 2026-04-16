@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { candidateAPI } from '../services/api';
+import { ChevronDown, ChevronUp, FileText } from 'lucide-react';
 
 function CandidateDashboard({ onLogout }) {
   const [resume, setResume] = useState(null);
@@ -7,8 +8,10 @@ function CandidateDashboard({ onLogout }) {
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState({ text: '', type: '' });
+  const [isResumeExpanded, setIsResumeExpanded] = useState(false);
 
   const userName = localStorage.getItem('userName');
+  const userEmail = localStorage.getItem('userEmail') || 'Not specified';
 
   useEffect(() => {
     fetchResume();
@@ -146,39 +149,64 @@ function CandidateDashboard({ onLogout }) {
 
         {resume && (
           <div className="resume-info">
-            <h2>Your Resume</h2>
+            <h2>Your Resume Details</h2>
             <div className="info-card">
-              <div className="info-row">
-                <strong>File Name:</strong>
-                <span>{resume.fileName}</span>
+              <div className="info-header">
+                <FileText size={20} className="info-icon" />
+                <h3>{resume.fileName}</h3>
+                <span className="upload-date">
+                  {new Date(resume.uploadedAt).toLocaleDateString()}
+                </span>
               </div>
-              <div className="info-row">
-                <strong>Uploaded At:</strong>
-                <span>{new Date(resume.uploadedAt).toLocaleString()}</span>
-              </div>
+              
               {resume.matchScore > 0 && (
-                <>
-                  <div className="info-row">
-                    <strong>Match Score:</strong>
+                <div className="match-stats">
+                  <div className="stat-box">
+                    <span className="stat-label">Match Score</span>
                     <span className="score">{resume.matchScore}%</span>
                   </div>
                   {resume.missingSkills && resume.missingSkills.length > 0 && (
-                    <div className="info-row">
-                      <strong>Missing Skills:</strong>
-                      <span>{resume.missingSkills.join(', ')}</span>
+                    <div className="stat-box full-width">
+                      <span className="stat-label">Missing Skills</span>
+                      <span className="missing-skills">{resume.missingSkills.join(', ')}</span>
                     </div>
                   )}
-                </>
+                </div>
               )}
-              <div className="info-row">
-                <strong>Resume Preview:</strong>
-                <div className="resume-text">
-                  {resume.resumeText.substring(0, 500)}...
+
+              <div className="resume-preview-section">
+                <div className="preview-header">
+                  <h4>Structured Summary</h4>
+                  <button 
+                    onClick={() => setIsResumeExpanded(!isResumeExpanded)} 
+                    className="btn-expand"
+                  >
+                    {isResumeExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                    {isResumeExpanded ? 'Collapse' : 'View Full Resume'}
+                  </button>
+                </div>
+                
+                <div className={`resume-structured-content ${isResumeExpanded ? 'expanded' : 'collapsed'}`}>
+                  <ul className="structured-list">
+                    <li><strong>Name:</strong> <span>{resume.candidateName || userName}</span></li>
+                    <li><strong>Email:</strong> <span>{resume.candidateEmail || userEmail}</span></li>
+                    <li><strong>Summary:</strong> <span>{resume.resumeText.substring(0, 200)}...</span></li>
+                  </ul>
+
+                  {isResumeExpanded && (
+                     <div className="full-text">
+                       <h5>Full Extracted Content</h5>
+                       <p>{resume.resumeText}</p>
+                     </div>
+                  )}
                 </div>
               </div>
-              <button onClick={handleDelete} className="btn-danger">
-                Delete Resume
-              </button>
+
+              <div className="card-actions">
+                <button onClick={handleDelete} className="btn-danger">
+                  Delete Resume
+                </button>
+              </div>
             </div>
           </div>
         )}
