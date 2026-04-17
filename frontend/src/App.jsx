@@ -3,7 +3,7 @@ import Landing from './components/Landing';
 import Auth from './components/Auth';
 import CandidateDashboard from './components/CandidateDashboard';
 import HRDashboard from './components/HRDashboard';
-import { authAPI } from './services/api';
+import { authAPI, pingBackend } from './services/api';
 import './App.css';
 
 
@@ -14,6 +14,9 @@ function App() {
   const [authMode, setAuthMode] = useState('login');
 
   useEffect(() => {
+    // Ping backend to wake it up (Render cold boot)
+    pingBackend().catch(err => console.log('Ping check:', err.message));
+
     const checkAuth = async () => {
       const token = localStorage.getItem('token');
       const role = localStorage.getItem('role');

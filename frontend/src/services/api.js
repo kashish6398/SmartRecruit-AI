@@ -9,6 +9,12 @@ const api = axios.create({
   baseURL: API_URL
 });
 
+// Wake up Render backend
+export const pingBackend = () => {
+  const rootUrl = API_URL.split('/api')[0];
+  return axios.get(`${rootUrl}/health`);
+};
+
 // Add token to requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
