@@ -260,6 +260,7 @@ exports.getRankedCandidates = async (req, res) => {
     res.status(200).json({
       success: true,
       job: {
+        _id: job._id,
         title: job.title,
         description: job.description,
         requiredSkills: job.requiredSkills

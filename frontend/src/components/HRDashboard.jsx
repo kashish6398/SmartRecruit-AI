@@ -252,7 +252,7 @@ function HRDashboard({ onLogout }) {
               <h2>Candidates for: {selectedJob.title}</h2>
               <div>
                 <button 
-                  onClick={() => handleSendInvitations(candidates[0]?.jobId)} 
+                  onClick={() => handleSendInvitations(selectedJob._id)} 
                   className="btn-success"
                   disabled={candidates.length === 0}
                 >

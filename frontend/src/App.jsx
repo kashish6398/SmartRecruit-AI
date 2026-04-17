@@ -3,7 +3,9 @@ import Landing from './components/Landing';
 import Auth from './components/Auth';
 import CandidateDashboard from './components/CandidateDashboard';
 import HRDashboard from './components/HRDashboard';
+import { authAPI } from './services/api';
 import './App.css';
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,14 +14,25 @@ function App() {
   const [authMode, setAuthMode] = useState('login');
 
   useEffect(() => {
-    // Check if user is already logged in 
-    const token = localStorage.getItem('token');
-    const role = localStorage.getItem('role');
+    const checkAuth = async () => {
+      const token = localStorage.getItem('token');
+      const role = localStorage.getItem('role');
 
-    if (token && role) {
-      setIsAuthenticated(true);
-      setUserRole(role);
-    }
+      if (token && role) {
+        try {
+          // Verify token with backend
+          await authAPI.getMe();
+          setIsAuthenticated(true);
+          setUserRole(role);
+        } catch (err) {
+          console.error('Session expired or invalid:', err);
+          localStorage.clear();
+          setIsAuthenticated(false);
+          setUserRole(null);
+        }
+      }
+    };
+    checkAuth();
   }, []);
 
   const handleLogin = (role) => {
